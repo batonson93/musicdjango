@@ -1,0 +1,72 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome-short.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/device.min.js' %}"></script>
+    <!--<script src="{% static 'js/script.js' %}"></script>-->
+</head>
+
+<body>
+    <header class="main-header">
+    <div class="container clearfix">
+        <nav class="main-nav">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'music' %}">Music</a>
+            <a href="{% url 'videos' %}">Videos</a>
+            <a href="{% url 'blog' %}">Blog</a>
+            <a href="{% url 'shop' %}">Shop</a>
+            <a href="{% url 'tour' %}">Tour</a>
+            <a href="{% url 'media' %}">Media</a>
+        </nav>
+        <button class="hamburger">Menu</button>
+        <ul class="user-block">
+            <li><a href="#" class="sign-in"><i class="fa fa-user"></i>Sign in</a></li>
+            <li><a href="#" class="sign-up"><i class="fa fa-user-plus"></i>Sign up</a></li>
+        </ul>
+        <nav class="mobile-nav">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'music' %}">Music</a>
+            <a href="{% url 'videos' %}">Videos</a>
+            <a href="{% url 'blog' %}">Blog</a>
+            <a href="{% url 'shop' %}">Shop</a>
+            <a href="{% url 'tour' %}">Tour</a>
+            <a href="{% url 'media' %}">Media</a>
+        </nav>
+    </div>
+</header>
+
+    <main class="clearfix content-container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+<div class="container">
+        <footer class="main-footer clearfix">
+            <div class="developed">
+                Developed by <a href="#">Alphacoders</a>
+            </div>
+            <div class="social">
+                <a href="#">
+                    <i class="fa fa-vk"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                Copyright, <i class="fa fa-copyright"></i>. 2015
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

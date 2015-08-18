@@ -1,0 +1,33 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+
+    <article class="post post-open">
+            <img class="img-link" src="{{ article.image.url }}">
+            <h2>{{ article.title }}</h2>
+            <pre>{{ article.text }}</pre>
+            <div class="post-info clearfix">
+                <span class="post-info-date">1.1.2015</span>
+                <button class="post-info-share">Share</button>
+                <button class="post-info-comment"><i class="fa fa-comment"></i>10</button>
+            </div>
+        </article>
+        <div class="other-posts clearfix">
+            <p>Other posts</p>
+            {% for article in news %}
+                <div class="post">
+                    <a href="post-open.html">
+                        <div class="other-post-info">{{ article.title }}</div>
+                        <img src="{{ article.image.url }}">
+                        <h2>{{ article.title }}</h2>
+                    </a>
+                    <div class="post-info clearfix">
+                        <span class="post-info-date">{{ article.created }}</span>
+                        <button class="post-info-comment"><i class="fa fa-comment"></i>10</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    <button class="news-load-btn">Load</button>
+
+{% endblock %}

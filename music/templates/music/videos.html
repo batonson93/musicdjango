@@ -1,0 +1,12 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+
+    <div class="page-title">
+            <h3>Video</h3>
+        </div>
+
+    {% for video in videos %}
+            <iframe class="video video-page-video" src="{{ video.link }}" frameborder="0" allowfullscreen></iframe>
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load endless %}
+<!--<script type="text/javascript">
+	 if ($(window).width() > 800) {
+        var a = $('.post img').width();
+        $('.post img').css('height', a / 1.74 + 'px');
+    }
+</script>-->
+{% lazy_paginate 4 news %}
+                {% for article in news %}
+                    <article class="post">
+                    <a href="{% url 'news' article.id %}">
+                        <img src="{{ article.image.url }}">
+                    </a>
+                    <h2>
+                        <a href="{% url 'news' article.id %}">{{ article.title }}</a>
+                    </h2>
+                    <p>{{ article.description }}</p>
+                    <div class="post-info clearfix">
+                        <span class="post-info-date">{{ article.created }}</span>
+                        <button class="post-info-share">Share</button>
+                        <button class="post-info-comment"><i class="fa fa-comment"></i>10</button>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        <!-- <button class="news-load-btn">Load</button> -->
+        {% show_more "more" %}

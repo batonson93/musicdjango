@@ -1,0 +1,17 @@
+{% extends 'music/base.html' %}
+
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <script src="{% static 'js/endless-pagination.js' %}"></script>
+    <script>$.endlessPaginate({paginateOnScroll: true});</script>
+
+        <div class="page-title">
+            <h3>Blog</h3>
+        </div>
+        <div class="posts clearfix">
+        {% include page_template %}
+
+{% endblock %}

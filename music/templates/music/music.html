@@ -1,0 +1,39 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+
+        <div class="page-title">
+            <h3>Singles</h3>
+        </div>
+        <div class="singles clearfix">
+        {% for single in singles %}
+            <div class="single">
+                <img src="{{ single.image.url }}">
+                <h3>{{ single.title }}</h3>
+                <a href="{{ single.link.url }}" class="download">Download <i class="fa fa-download"></i></a>
+            </div>
+        {% endfor %}
+        <div class="page-title">
+            <h3>Albums</h3>
+        </div>
+        <div class="albums clearfix">
+            {% for album in albums %}
+            <div class="album">
+                <div class="listen-pad">
+
+                </div>
+                <div class="album-info">
+                    <img src="{{ album.image.url }}">
+                    <h3>{{ album.title }}</h3>
+                    <p>{{ album.timing }}</p>
+                    <p>{{ album.year }}</p>
+                    <button class="listen">Listen</button>
+                    <button class="download">Download <i class="fa fa-download"></i></button>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
+        </div>
+
+{% endblock %}

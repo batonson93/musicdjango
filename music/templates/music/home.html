@@ -1,0 +1,47 @@
+{% extends 'music/base.html' %}
+
+{% block content %}
+
+        <div class="actual">
+            <h1>Album name</h1>
+            <span>Coming</span>
+            <span>Nov, 2015</span>
+        </div>
+        <div class="actual-video">
+            <iframe class="video video-page-video" src="{{ video.link }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="next-shows">
+            <h3><a href="{% url 'tour' %}">Upcoming</a></h3>
+            <ul>
+                <li class="show-info"><span class="show-info-date">1.1.2015, City Name, Arena Name</span><span class="show-info-tickets">1 ticket left. <a href="#">Buy</a></span></li>
+                <li class="show-info"><span class="show-info-date">1.1.2015, City Name, Arena Name</span><span class="show-info-tickets">0 tickets left</span></li>
+                <li class="show-info"><span class="show-info-date">1.1.2015, City Name, Arena Name</span><span class="show-info-tickets">0 tickets left</span></li>
+                <li class="show-info"><span class="show-info-date">1.1.2015, City Name, Arena Name</span><span class="show-info-tickets">0 tickets left</span></li>
+                <li class="show-info"><span class="show-info-date">1.1.2015, City Name, Arena Name</span><span class="show-info-tickets">0 tickets left</span></li>
+            </ul>
+        </div>
+        <div class="news clearfix">
+            <h3><a href="{% url 'blog' %}">Blog</a></h3>
+            <div class="posts clearfix">
+                {% for article in news %}
+                    <article class="post">
+                    <a href="{% url 'news' article.id %}">
+                        <img src="{{ article.image.url }}">
+                    </a>
+                    <h2>
+                        <a href="{% url 'news' article.id %}">{{ article.title }}</a>
+                    </h2>
+                    <p>{{ article.description }}</p>
+                    <div class="post-info clearfix">
+                        <span class="post-info-date">{{ article.created }}</span>
+                        <button class="post-info-share">Share</button>
+                        <button class="post-info-comment"><i class="fa fa-comment"></i>10</button>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+            <button class="news-load-btn">Load</button>
+        </div>
+
+{% endblock %}
+
