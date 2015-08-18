@@ -1,14 +1,10 @@
 $(document).ready(function() {
 
     if ($(window).width() > 800) {
-        $.ajax({
-            complete: function() {
-                 if ($(window).width() > 800) {
-                 var a = $('.post img').width();
+       $(document).ajaxComplete( function (){
+                var a = $('.post img').width();
                  $('.post img').css('height', a / 1.74 + 'px');
-            }
-        }
-        });
+       });
         var a = $('.post img').width();
         var b = $('.other-posts .post img').width();
         $('.post img').css('height', a / 1.74 + 'px');
